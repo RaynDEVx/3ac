@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Révision locale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Suivi de révision</h1>
+  
+  <table>
+    <tr>
+      <th>Leçon</th>
+      <th>Matière</th>
+      <th>Révisé ?</th>
+      <th>note</th>
+    </tr>
+    <tbody id="table-body">
+    </tbody>
+  </table>
+
+  <script>
+    const lessons = [
+      ["Translation et vecteurs", "Mathématiques"],
+      ["Fonction affine & linéaire", "Mathématiques"],
+      ["Équation dune droite", "Mathématiques"],
+      ["Statistique", "Mathématiques"],
+      ["Géométrie dans l’espace", "Mathématiques"],
+      ["Équation & Inéquation", "Mathématiques"],
+      ["Systeme", "Mathématiques"],
+      ["Repere dans le plan", "Mathématiques"],
+      ["الأنظمة الديكتاتورية", "Histoire-Géographie"],
+      ["الحرب العالمية الثانية", "Histoire-Géographie"],
+      ["القضية الفلسطينية", "Histoire-Géographie"],
+      ["الكفاح من أجل الاستقلال", "Histoire-Géographie"],
+      ["بناء الدولة المغربية", "Histoire-Géographie"],
+      ["الولايات المتحدة الأمريكية", "Histoire-Géographie"],
+      ["اليابان", "Histoire-Géographie"],
+      ["روسيا", "Histoire-Géographie"],
+      ["مصر", "Histoire-Géographie"],
+      ["نيجيريا", "Histoire-Géographie"],
+      ["الموارد الطبيعية والتراث", "Histoire-Géographie"],
+      ["حوار الأديان", "Histoire-Géographie"],
+      ["المواطنة", "Histoire-Géographie"],
+      ["الإضافة المعنوية", "Arabe"],
+      ["الممنوع من الصرف", "Arabe"],
+      ["اسم التفضيل", "Arabe"],
+      ["أسلوب التعجب", "Arabe"],
+      ["أسلوب الذم والمدح", "Arabe"],
+      ["أسلوب النداء", "Arabe"],
+      ["أسلوب الاختصاص", "Arabe"],
+      ["أسلوب الاستفهام", "Arabe"],
+      ["إنشاء 1", "Arabe"],
+      ["إنشاء 2", "Arabe"],
+      ["إنشاء 3", "Arabe"],
+      ["La sensibilité consciente", "Sciences"],
+      ["La motricité volontaire", "Sciences"],
+      ["L'organisation du système nerveux", "Sciences"],
+      ["La motricité involontaire", "Sciences"],
+      ["Rôle et caractéristiques du muscle", "Sciences"],
+      ["Structure et besoins du muscle", "Sciences"],
+      ["Diversité et caractéristiques des microbes", "Sciences"],
+      ["L'immunité naturelle", "Sciences"],
+      ["L'immunité spécifique", "Sciences"],
+      ["Aider l’organe à se défendre", "Sciences"],
+      ["Les allergies", "Sciences"],
+      ["Le sida", "Sciences"],
+      ["La transfusion sanguine", "Sciences"],
+      ["الإسلام عقيدة وشريعة", "Islamique"],
+      ["الرسول يرسي قيم السلم والتعايش", "Islamique"],
+      ["الزكاة: أحكامها ومقاصدها", "Islamique"],
+      ["حق الغير", "Islamique"],
+      ["التعارف والتعايش", "Islamique"],
+      ["سورة الحديد", "Islamique"],
+      ["القواعد التجويدية", "Islamique"],
+      ["أثر القرآن في تزكية النفس", "Islamique"],
+      ["إيواء الرسول", "Islamique"],
+      ["حق البيئة", "Islamique"],
+      ["الوصايا التسع للرسول", "Islamique"],
+      ["Le mouvement et le repos", "Physique"],
+      ["La vitesse moyenne", "Physique"],
+      ["Actions mécaniques", "Physique"],
+      ["La suite des actions mécaniques", "Physique"],
+      ["Notion de force", "Physique"],
+      ["Équilibre d’un corps solide", "Physique"],
+      ["Le poids et la masse", "Physique"],
+      ["La résistance électrique – Loi d’Ohm", "Physique"],
+      ["La puissance électrique", "Physique"],
+      ["Énergie électrique", "Physique"],
+
+
+
+
+    ];
+
+    const tbody = document.getElementById("table-body");
+
+    lessons.forEach(([lesson, subject], index) => {
+  const isChecked = localStorage.getItem("checked_" + index) === "true";
+  const note = localStorage.getItem("note_" + index) || "";
+
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${lesson}</td>
+    <td class="matiere ${subject.replace(/\s+/g, '-').toLowerCase()}">${subject}</td>
+
+    <td><input type="checkbox" id="cb_${index}" ${isChecked ? "checked" : ""}></td>
+    <td><input type="text" id="note_${index}" value="${note}" placeholder="Ajouter une remarque..."></td>
+  `;
+  tbody.appendChild(row);
+
+  // حفظ حالة المراجعة
+  document.getElementById("cb_" + index).addEventListener("change", (e) => {
+    localStorage.setItem("checked_" + index, e.target.checked);
+  });
+
+  // حفظ الملاحظة
+  document.getElementById("note_" + index).addEventListener("input", (e) => {
+    localStorage.setItem("note_" + index, e.target.value);
+  });
+});
+
+  </script>
+  <footer style="margin-top: 40px; text-align: center; font-family: Arial, sans-serif; font-size: 14px;">
+    Project made by
+    <a href="https://www.instagram.com/rayn_sec?igsh=MW1obXg2eDF0bmJjNg==" target="_blank" style="color: #007bff; text-decoration: none;">
+      @rayn_sec
+    </a>
+  </footer>
+  
+</body>
+</html>

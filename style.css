@@ -1,0 +1,86 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 40px;
+    background-color: #f5f7fa;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  th, td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+  
+  th {
+    background-color: #f1f1f1;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  input[type="checkbox"] {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* تلوين خانات المواد */
+  .matiere {
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    color: white;
+  }
+  
+  .mathématiques         { background-color: #2d9cdb; }
+  .arabe                 { background-color: #a05252; }
+  .histoire-géographie   { background-color: #c17d10; }
+  .sciences              { background-color: #6cbd45; }
+  .islamique             { background-color: #278b4e; }
+  .physique              { background-color: #6b5cad; }
+  
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
